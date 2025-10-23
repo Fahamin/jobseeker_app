@@ -1,10 +1,10 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart' hide Response;
-import 'api_service.dart';
+import '../../core/network/dio_client.dart';
 
 class AuthService extends GetxService {
-  final ApiService _apiService = Get.find<ApiService>();
+  final DioClient _apiService = Get.find<DioClient>();
 
   // Register
   Future<Response> register({

@@ -4,9 +4,9 @@ import 'package:get/get.dart';
 import 'package:jobseeker/app/modules/login/controllers/login_controller.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../core/environment.dart';
+import '../constance/environment.dart';
 
-class ApiService extends GetxService {
+class DioClient extends GetxService {
   late Dio _dio;
 
   @override
