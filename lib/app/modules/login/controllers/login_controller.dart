@@ -1,12 +1,13 @@
 import 'dart:convert';
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:jobseeker/app/model/user_model.dart';
 import 'package:jobseeker/app/routes/app_pages.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../../data/auth_service.dart';
-
 
 class LoginController extends GetxController {
   final AuthService _authService = Get.find<AuthService>();
@@ -55,11 +56,13 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 201) {
         await _saveAuthData(response.data);
-        Get.offAllNamed('/home');
-        Get.snackbar('Success', 'Registration successful!');
+        Get.offAllNamed(Routes.MAINPAGE);
+      //  Get.snackbar('Success', 'Registration successful!');
       }
     } catch (e) {
-      final error = e is Map ? e['errors'] ?? e : {'error': 'Registration failed'};
+      final error = e is Map
+          ? e['errors'] ?? e
+          : {'error': 'Registration failed'};
       Get.snackbar('Error', error.toString());
     } finally {
       isLoading.value = false;
@@ -67,10 +70,7 @@ class LoginController extends GetxController {
   }
 
   // Login
-  Future<void> login({
-    required String email,
-    required String password,
-  }) async {
+  Future<void> login({required String email, required String password}) async {
     try {
       isLoading.value = true;
       final response = await _authService.login(
@@ -80,8 +80,8 @@ class LoginController extends GetxController {
 
       if (response.statusCode == 200) {
         await _saveAuthData(response.data);
-        Get.offAllNamed(Routes.HOME);
-        Get.snackbar('Success', 'Login successful!');
+        Get.offAllNamed(Routes.MAINPAGE);
+
       }
     } catch (e) {
       final error = e is Map ? e['errors'] ?? e : {'error': 'Login failed'};
@@ -111,14 +111,18 @@ class LoginController extends GetxController {
   // Get User Profile
   Future<void> getUserProfile() async {
     try {
+      isLoading.value = true;
       final response = await _authService.getUser();
       user.value = response.data;
+      debugPrint(response.toString());
 
       // Update local storage
       final prefs = await SharedPreferences.getInstance();
       await prefs.setString('user_data', json.encode(response.data));
     } catch (e) {
       await logout();
+    } finally {
+      isLoading.value = false;
     }
   }
 
@@ -133,7 +137,9 @@ class LoginController extends GetxController {
         Get.back();
       }
     } catch (e) {
-      final error = e is Map ? e['message'] ?? e : {'error': 'Failed to send reset link'};
+      final error = e is Map
+          ? e['message'] ?? e
+          : {'error': 'Failed to send reset link'};
       Get.snackbar('Error', error.toString());
     } finally {
       isLoading.value = false;
@@ -161,7 +167,9 @@ class LoginController extends GetxController {
         Get.offAllNamed('/login');
       }
     } catch (e) {
-      final error = e is Map ? e['message'] ?? e : {'error': 'Password reset failed'};
+      final error = e is Map
+          ? e['message'] ?? e
+          : {'error': 'Password reset failed'};
       Get.snackbar('Error', error.toString());
     } finally {
       isLoading.value = false;

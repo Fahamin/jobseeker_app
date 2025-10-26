@@ -3,7 +3,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:jobseeker/app/modules/favorite/views/favorite_view.dart';
 import 'package:jobseeker/app/modules/home/views/home_view.dart';
+import 'package:jobseeker/app/modules/profile/views/profile_view.dart';
 
 import 'core/constance/colors.dart';
 import 'core/helpers/helper_functions.dart';
@@ -26,7 +28,6 @@ class NavigationMenu extends StatelessWidget {
           indicatorColor: dark ? HkColors.light.withOpacity(0.1) : HkColors.dark.withOpacity(0.1),
           destinations: const [
             NavigationDestination(icon: Icon(Icons.home), label: 'Home'),
-            NavigationDestination(icon: Icon(Icons.shop), label: 'Store'),
             NavigationDestination(icon: Icon(Icons.favorite), label: 'Wishlist'),
             NavigationDestination(icon: Icon(Icons.person), label: 'Profile')
           ],
@@ -44,8 +45,8 @@ class NavigationController extends GetxController{
 
   final screens = [
     const HomeView(),
-    const StoreScreen(),
-    const FavouriteScreen(),
-    const SettingsScreen()
+    const FavoriteView(),
+    const ProfileView(),
+
   ];
 }

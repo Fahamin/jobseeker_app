@@ -7,8 +7,8 @@ import '../controllers/login_controller.dart';
 
 class LoginView extends GetView<LoginController> {
    LoginView({super.key});
-   final TextEditingController emailController = TextEditingController();
-   final TextEditingController passwordController = TextEditingController();
+   final TextEditingController emailController = TextEditingController(text: "fahamin383@gmail.com");
+   final TextEditingController passwordController = TextEditingController(text: "12345678");
 
    final _formKey = GlobalKey<FormState>();
 
