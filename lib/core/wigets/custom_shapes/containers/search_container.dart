@@ -36,7 +36,7 @@ class HkSearchContainer extends StatelessWidget {
             width: HkHelperFunctions.screenWidth(),
             padding: const EdgeInsets.all(HkSizes.md),
             decoration: BoxDecoration(
-                color: showBackground ? dark ? HkColors.dark : HkColors.light : Colors.transparent ,
+                color: showBackground ? dark ? HkColors.dark : HkColors.white : Colors.transparent ,
                 borderRadius: BorderRadius.circular(HkSizes.borderRadiusLg),
                 border: showBorder ? Border.all(color: HkColors.grey) : null
             ),

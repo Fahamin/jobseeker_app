@@ -31,13 +31,15 @@ class Data {
   int? id;
   String? name;
   String? description;
+  int? jobPostsCount;
 
-  Data({this.id, this.name, this.description});
+  Data({this.id, this.name, this.description, this.jobPostsCount});
 
   Data.fromJson(Map<String, dynamic> json) {
     id = json['id'];
     name = json['name'];
     description = json['description'];
+    jobPostsCount = json['job_posts_count'];
   }
 
   Map<String, dynamic> toJson() {
@@ -45,6 +47,7 @@ class Data {
     data['id'] = this.id;
     data['name'] = this.name;
     data['description'] = this.description;
+    data['job_posts_count'] = this.jobPostsCount;
     return data;
   }
 }

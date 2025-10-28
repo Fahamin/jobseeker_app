@@ -19,9 +19,6 @@ class ProfileName extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 18.0),
       child:  Obx(() {
-        if (controller.isLoading.value) {
-          return const HkShimmerEffect(width: 80, height: 15);
-        }
         return HkBrandTitleText(
           title: controller.user.value.name.toString(),
           textAlign: TextAlign.start,
