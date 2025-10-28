@@ -10,7 +10,16 @@ class HomeService extends GetxService {
 
   Future<Response> getCategories() async {
     try {
-      final response = await _apiService.dio.get('/categories');
+      final response = await _apiService.dio.get('categories');
+      return response;
+    } on DioException catch (e) {
+      throw e.response?.data ?? {'error': 'Failed to get user'};
+    }
+  }
+
+  Future<Response> getJobsList() async {
+    try {
+      final response = await _apiService.dio.get('job-posts');
       return response;
     } on DioException catch (e) {
       throw e.response?.data ?? {'error': 'Failed to get user'};

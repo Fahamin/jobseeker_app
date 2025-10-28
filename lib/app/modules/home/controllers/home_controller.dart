@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jobseeker/app/data/home_service.dart';
 import 'package:jobseeker/app/model/category_model.dart';
+import 'package:jobseeker/app/model/job_list_model.dart'  hide Data;
 import 'package:jobseeker/app/model/user_model.dart';
 import 'package:jobseeker/app/modules/home/widgets/category_item_vertical.dart';
 
@@ -13,6 +14,7 @@ class HomeController extends GetxController {
   var isLoading = false.obs;
   var user = UserModel().obs;
   var categorylist = <Data>[].obs;
+  var joblist = <Joblist>[].obs;
 
   final _authService = Get.find<AuthService>();
   final _homeService = Get.find<HomeService>();
@@ -23,6 +25,24 @@ class HomeController extends GetxController {
     fetchUser();
 
   }
+
+  Future<void> getJobsList() async {
+    try {
+      isLoading.value = true;
+      final res = await _homeService.getJobsList(); // res.data = Map<String,dynamic>
+
+      // Map থেকে CategoryModel তৈরি
+      final jobModel = JobListModel.fromJson(res.data);
+
+      // RxList<Data> কে assign করা
+      joblist.value = jobModel.joblist ?? [];
+    } catch (e) {
+      print("Error fetching categories: $e");
+    } finally {
+      isLoading.value = false;
+    }
+  }
+
 
   Future<void> getCategory() async {
     try {

@@ -7,6 +7,7 @@ import 'package:jobseeker/core/constance/colors.dart';
 
 import '../../../../core/wigets/custom_shapes/containers/circular_container.dart';
 import '../../../../core/wigets/custom_shapes/containers/rounded_container.dart';
+import '../../../../core/wigets/shimmer/shimmer_effect.dart';
 import '../controllers/home_controller.dart';
 
 class CategoryItem extends StatelessWidget {
@@ -19,10 +20,19 @@ class CategoryItem extends StatelessWidget {
     Future.microtask(() => controller.getCategory());
 
     return Obx(() {
+
+
       return ListView.builder(
         itemCount: controller.categorylist.length,
         scrollDirection: Axis.horizontal,
         itemBuilder: (context, index) {
+          if (controller.isLoading.value) {
+            // Loading: shimmer দেখাবে
+            return Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: const HkShimmerEffect(width: 100, height: 100, ),
+            );
+          }
           var item = controller.categorylist[index];
           return HkRoundedContainer(
 

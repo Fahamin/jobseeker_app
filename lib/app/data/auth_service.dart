@@ -14,7 +14,7 @@ class AuthService extends GetxService {
     required String passwordConfirmation,
   }) async {
     try {
-      final response = await _apiService.dio.post('/register', data: {
+      final response = await _apiService.dio.post('register', data: {
         'name': name,
         'email': email,
         'password': password,
@@ -33,7 +33,7 @@ class AuthService extends GetxService {
     required String password,
   }) async {
     try {
-      final response = await _apiService.dio.post('/login', data: {
+      final response = await _apiService.dio.post('login', data: {
         'email': email,
         'password': password,
       });
@@ -47,7 +47,7 @@ class AuthService extends GetxService {
   // Logout
   Future<Response> logout() async {
     try {
-      final response = await _apiService.dio.post('/logout');
+      final response = await _apiService.dio.post('logout');
       return response;
     } on DioException catch (e) {
       throw e.response?.data ?? {'error': 'Logout failed'};
@@ -57,7 +57,7 @@ class AuthService extends GetxService {
   // Get User Profile
   Future<Response> getUser() async {
     try {
-      final response = await _apiService.dio.get('/user');
+      final response = await _apiService.dio.get('user');
       return response;
     } on DioException catch (e) {
       throw e.response?.data ?? {'error': 'Failed to get user'};
@@ -67,7 +67,7 @@ class AuthService extends GetxService {
   // Forgot Password
   Future<Response> forgotPassword(String email) async {
     try {
-      final response = await _apiService.dio.post('/forgot-password', data: {
+      final response = await _apiService.dio.post('forgot-password', data: {
         'email': email,
       });
       return response;
@@ -84,7 +84,7 @@ class AuthService extends GetxService {
     required String passwordConfirmation,
   }) async {
     try {
-      final response = await _apiService.dio.post('/reset-password', data: {
+      final response = await _apiService.dio.post('reset-password', data: {
         'email': email,
         'token': token,
         'password': password,
