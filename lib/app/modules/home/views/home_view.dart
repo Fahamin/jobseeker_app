@@ -8,8 +8,8 @@ import '../../../../core/wigets/appbar/icon_appbar.dart';
 import '../../../../core/wigets/custom_shapes/containers/search_container.dart';
 import '../../../../core/wigets/texts/section_heading.dart';
 import '../controllers/home_controller.dart';
-import '../widgets/category_item_vertical.dart';
-import '../widgets/jobpost_horizontal.dart' hide CategoryItem;
+import '../widgets/category_card_vertical.dart';
+import '../widgets/jobpost_card_horizontal.dart' hide CategoryItem;
 import '../widgets/profile_name.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -36,7 +36,7 @@ class HomeView extends GetView<HomeController> {
             SizedBox(height: 10),
             Padding(
               padding: EdgeInsets.all(8.0),
-              child: HkSectionHeading(title: "Popular Jobs Category's"),
+              child: HkSectionHeading(title: "Popular Jobs Category's",textSize: 22,),
             ),
             SizedBox(height: 10),
 
@@ -44,7 +44,7 @@ class HomeView extends GetView<HomeController> {
 
             Padding(
               padding: EdgeInsets.all(8.0),
-              child: HkSectionHeading(title: "Recommended Jobs "),
+              child: HkSectionHeading(title: "Recommended Jobs ",textSize: 22,),
             ),
 
             SizedBox(

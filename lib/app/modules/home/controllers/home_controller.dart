@@ -6,7 +6,7 @@ import 'package:jobseeker/app/data/home_service.dart';
 import 'package:jobseeker/app/model/category_model.dart';
 import 'package:jobseeker/app/model/job_list_model.dart'  hide Data;
 import 'package:jobseeker/app/model/user_model.dart';
-import 'package:jobseeker/app/modules/home/widgets/category_item_vertical.dart';
+import 'package:jobseeker/app/modules/home/widgets/category_card_vertical.dart';
 
 import '../../../data/auth_service.dart';
 

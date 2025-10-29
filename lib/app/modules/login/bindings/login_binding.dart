@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:jobseeker/app/data/home_service.dart';
+import 'package:jobseeker/app/data/job_service.dart';
 
 import '../../../../core/network/dio_client.dart';
 import '../../../data/auth_service.dart';
@@ -11,6 +12,7 @@ class LoginBinding extends Bindings {
     Get.lazyPut(() => DioClient());
     Get.lazyPut(() => AuthService());
     Get.lazyPut(() => HomeService());
+    Get.lazyPut(() => JobService());
 
     Get.lazyPut<LoginController>(
       () => LoginController(),

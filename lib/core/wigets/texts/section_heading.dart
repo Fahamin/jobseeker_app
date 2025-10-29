@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class HkSectionHeading extends StatelessWidget {
-  const HkSectionHeading({
+  HkSectionHeading({
     super.key,
     this.textColor,
     this.showActionButton = false,
     required this.title,
     this.buttonTitle = 'View all',
     this.onPressed,
+    required this.textSize,
   });
 
+  double textSize ;
   final Color? textColor;
   final bool showActionButton;
   final String title, buttonTitle;
@@ -22,15 +24,14 @@ class HkSectionHeading extends StatelessWidget {
       children: [
         Text(
           title,
-          style:TextStyle(
+          style: TextStyle(
             color: textColor,
-            fontSize: 22,
+            fontSize: textSize,
             fontWeight: FontWeight.bold,
             fontFamily: 'Poppins',
-          ) ,
+          ),
           maxLines: 1,
           overflow: TextOverflow.ellipsis,
-
         ),
         if (showActionButton)
           TextButton(onPressed: onPressed, child: Text(buttonTitle)),

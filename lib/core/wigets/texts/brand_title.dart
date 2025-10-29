@@ -11,11 +11,14 @@ class HkBrandTitleText extends StatelessWidget {
     required this.title,
     this.textAlign = TextAlign.start,
     this.brandTextSize = TextSizes.small
+
   });
 
   final Color? color;
   final String title;
   final int maxLines;
+  final int size = 14;
+
   final TextAlign? textAlign;
   final TextSizes brandTextSize;
 
