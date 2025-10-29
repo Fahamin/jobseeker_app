@@ -18,12 +18,15 @@ class HomeController extends GetxController {
 
   final _authService = Get.find<AuthService>();
   final _homeService = Get.find<HomeService>();
-
+  var selectedCategoryIndex = (-1).obs;
   @override
   void onInit() {
     super.onInit();
     fetchUser();
 
+  }
+  void selectCategory(int index) {
+    selectedCategoryIndex.value = index;
   }
 
   Future<void> getJobsList() async {

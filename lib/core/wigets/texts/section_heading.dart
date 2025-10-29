@@ -1,6 +1,3 @@
-
-
-
 import 'package:flutter/material.dart';
 
 class HkSectionHeading extends StatelessWidget {
@@ -23,8 +20,20 @@ class HkSectionHeading extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Text(title, style: Theme.of(context).textTheme.headlineSmall!.apply(color: textColor),maxLines: 1, overflow: TextOverflow.ellipsis,),
-        if(showActionButton) TextButton(onPressed: onPressed, child: Text(buttonTitle))
+        Text(
+          title,
+          style:TextStyle(
+            color: textColor,
+            fontSize: 22,
+            fontWeight: FontWeight.bold,
+            fontFamily: 'Poppins',
+          ) ,
+          maxLines: 1,
+          overflow: TextOverflow.ellipsis,
+
+        ),
+        if (showActionButton)
+          TextButton(onPressed: onPressed, child: Text(buttonTitle)),
       ],
     );
   }
