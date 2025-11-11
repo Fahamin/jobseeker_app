@@ -26,4 +26,13 @@ class JobService  extends GetxService {
       throw e.response?.data ?? {'error': 'Failed to get user'};
     }
   }
+
+  Future<Response> getJobsDetailsByID(String id) async {
+    try {
+      final response = await _apiService.dio.get('job-posts/$id');
+      return response;
+    } on DioException catch (e) {
+      throw e.response?.data ?? {'error': 'Failed to get user'};
+    }
+  }
 }

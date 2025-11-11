@@ -6,6 +6,8 @@ import '../modules/favorite/views/favorite_view.dart';
 import '../modules/forget_password/views/forget_password_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/jobdetails/bindings/jobdetails_binding.dart';
+import '../modules/jobdetails/views/jobdetails_view.dart';
 import '../modules/joblistbycategory/bindings/joblistbycategory_binding.dart';
 import '../modules/joblistbycategory/views/joblistbycategory_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -58,6 +60,11 @@ class AppPages {
       name: _Paths.JOBLISTBYCATEGORY,
       page: () => const JoblistbycategoryView(),
       binding: JoblistbycategoryBinding(),
+    ),
+    GetPage(
+      name: _Paths.JOBDETAILS,
+      page: () =>  JobDetailView(),
+      binding: JobdetailsBinding(),
     ),
   ];
 }

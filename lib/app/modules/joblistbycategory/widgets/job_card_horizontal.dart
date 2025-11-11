@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:jobseeker/core/constance/colors.dart';
 import 'package:jobseeker/core/wigets/custom_shapes/containers/rounded_container.dart';
 import 'package:jobseeker/core/wigets/texts/brand_title.dart';
 import 'package:jobseeker/core/wigets/texts/section_heading.dart';
 import '../../../../core/wigets/texts/product_title.dart';
 import '../../../model/jobModel.dart';
+import '../../../routes/app_pages.dart';
 
 class JobCardHorizontal extends StatelessWidget {
   const JobCardHorizontal({super.key, required this.model});
@@ -54,20 +57,13 @@ class JobCardHorizontal extends StatelessWidget {
                     SizedBox(height: 2),
                     Text(
                       "Posted 2 days ago",
-                      style: TextStyle(
-                        fontSize: 12,
-                        color: Colors.grey[500],
-                      ),
+                      style: TextStyle(fontSize: 12, color: Colors.grey[500]),
                     ),
                   ],
                 ),
               ),
               // Favorite Icon
-              Icon(
-                Icons.favorite_border,
-                color: Colors.grey[400],
-                size: 20,
-              ),
+              Icon(Icons.favorite_border, color: Colors.grey[400], size: 20),
             ],
           ),
 
@@ -96,10 +92,7 @@ class JobCardHorizontal extends StatelessWidget {
               SizedBox(width: 4),
               Text(
                 model.location ?? "Location not specified",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[600],
-                ),
+                style: TextStyle(fontSize: 14, color: Colors.grey[600]),
               ),
               SizedBox(width: 16),
               Icon(
@@ -110,10 +103,7 @@ class JobCardHorizontal extends StatelessWidget {
               SizedBox(width: 4),
               Text(
                 "Full Time",
-                style: TextStyle(
-                  fontSize: 14,
-                  color: Colors.grey[600],
-                ),
+                style: TextStyle(fontSize: 14, color: Colors.grey[600]),
               ),
             ],
           ),
@@ -160,10 +150,7 @@ class JobCardHorizontal extends StatelessWidget {
           SizedBox(height: 16),
 
           // Divider and Action Button
-          Divider(
-            height: 1,
-            color: Colors.grey[300],
-          ),
+          Divider(height: 1, color: Colors.grey[300]),
 
           SizedBox(height: 12),
 
@@ -172,14 +159,11 @@ class JobCardHorizontal extends StatelessWidget {
             children: [
               Text(
                 "Apply before: 15 Dec 2024",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.black54,
-                ),
+                style: TextStyle(fontSize: 12, color: Colors.black54),
               ),
               ElevatedButton(
                 onPressed: () {
-                  // Add your onPressed logic here
+                  Get.toNamed(Routes.JOBDETAILS, arguments: model.id.toString());
                 },
                 style: ElevatedButton.styleFrom(
                   backgroundColor: HkColors.primary,
@@ -192,10 +176,7 @@ class JobCardHorizontal extends StatelessWidget {
                 ),
                 child: Text(
                   "View Details",
-                  style: TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
                 ),
               ),
             ],

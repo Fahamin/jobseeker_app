@@ -51,7 +51,7 @@ class HomeView extends GetView<HomeController> {
               height: 600, // Adjust height as needed
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: JobpostHorizontal(),
+                child: JobPostHorizontal(),
               ), // Make sure JobpostItem is also a horizontal list
             ),
           ],

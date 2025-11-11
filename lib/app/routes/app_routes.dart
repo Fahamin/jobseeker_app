@@ -11,6 +11,7 @@ abstract class Routes {
   static const PROFILE = _Paths.PROFILE;
   static const MAINPAGE = _Paths.MAINPAGE;
   static const JOBLISTBYCATEGORY = _Paths.JOBLISTBYCATEGORY;
+  static const JOBDETAILS = _Paths.JOBDETAILS;
 }
 
 abstract class _Paths {
@@ -23,4 +24,5 @@ abstract class _Paths {
   static const PROFILE = '/profile';
   static const MAINPAGE = '/mainpage';
   static const JOBLISTBYCATEGORY = '/joblistbycategory';
+  static const JOBDETAILS = '/jobdetails';
 }
